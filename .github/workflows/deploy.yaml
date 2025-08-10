@@ -1,0 +1,20 @@
+name: Deploy to GitHub Pages
+
+on:
+  # Run this workflow every time you push to the `main` branch
+  push:
+    branches: [ main ]
+  # Allows you to run this workflow manually from the Actions tab on GitHub
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout your repository
+        uses: actions/checkout@v4
+
+      - name: Install, build, and deploy
+        uses: withastro/action@v2
+        # You can customize this with options like node-version, package-manager, etc.
+        # See https://github.com/withastro/action for more details.
